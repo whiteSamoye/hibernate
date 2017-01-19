@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+
+  This mapping demonstrates content-based discrimination for the
+  table-per-hierarchy mapping strategy, using a formula
+  discriminator.
+
+-->
+
+<hibernate-mapping 
+	package="cn.samoye.bean" auto-import="true">
+	
+	<class name="Dept"  table="dept">
+		
+		<id name="deptId" column="deptId">
+			<generator class="uuid.hex"/>
+		</id>
+		<property name="deptName" column="deptName"></property>
+		<set name="emps" inverse="false" cascade="save-update,delete">
+			<key column="f_deptId"></key>
+			<one-to-many class="Emp"/>
+		</set>
+	</class>
+
+</hibernate-mapping>

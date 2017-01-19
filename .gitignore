@@ -1,0 +1,9 @@
+/bin/
+/build/
+.classpath
+.project
+.settings
+META-INF
+.svn
+_svn
+deployables

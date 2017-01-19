@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Hibernate的主配置文件 -->
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 1.数据库相关配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- jdbc:mysql://localhost:3306/day30 -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<!-- 2.其他参数配置 -->
+			<!-- 2.1.显示sql语句 -->
+		<property name="show_sql">true</property>
+			<!-- 2.2.格式化sql语句 
+		<property name="hibernate.format_sql">true</property>-->
+			<!-- 2.3.自动建表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 3.映射配置 -->
+		<mapping resource="cn/samoye/bean/Emp.hbm.xml"/>
+		<mapping resource="cn/samoye/bean/Dept.hbm.xml"/>
+		<mapping resource="cn/samoye/bean/Role.hbm.xml"/>
+		<mapping resource="cn/samoye/bean/RolePrivilege.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
